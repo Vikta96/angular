@@ -3,16 +3,16 @@
 FROM node:16-alpine AS build
 
 # Create app directory
-WORKDIR /usr/src/app
+WORKDIR /usr/src/app/
 
 # Copy package.json files to the working directory
-COPY package.json ./app
+COPY ./package.json/ /usr/src/app/
 
 # Install app dependencies
 RUN npm install
 
 # Copy the source files
-COPY . /app
+COPY . /usr/src/app/
 
 # Build the React app for production
 RUN npm run build
